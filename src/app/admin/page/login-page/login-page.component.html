@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="login-container">
+    <div class="field-raw">
+      <div class="form-field">
+        <mat-form-field class="max-length">
+          <mat-label>Логин</mat-label>
+          <input type="text" matInput placeholder="Имя пользователя" formControlName="login">
+          <mat-error *ngIf="getControl('login').hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <mat-form-field class="max-length">
+          <mat-label>Пароль</mat-label>
+          <input type="password" matInput placeholder="Пароль"  formControlName="password">
+          <mat-error *ngIf="getControl('password').hasError('required')">
+            <strong>Введите пароль</strong>
+          </mat-error>
+        </mat-form-field>
+        </div>
+        <div class="command-panel">
+          <button class="max-length" type="submit" mat-stroked-button color="primary">Войти</button>
+        </div>
+        </div>
+    </div>
+
+</form>

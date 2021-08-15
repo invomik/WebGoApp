@@ -1,0 +1,67 @@
+.app_wrapper {
+
+}
+
+.app_container {
+  //border: 3px solid #909cec;
+  margin: 2em 1em 2em 2em;
+  height: 95%;
+}
+
+.app_row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.app_column {
+
+}
+
+.app_column_menu {
+  //width: 25%;
+  height: 100%;
+  padding: 5px 5px;max-width: 40%;
+  min-width: 20em;
+  max-width: 30em;
+  flex: 1 1 25%;
+  overflow: auto;
+}
+
+.app_column_content {
+  //width: 75%;
+  height: 100%;
+  padding: 5px 0px 0px 0px;
+  flex: 1 1 75%;
+  overflow: auto;
+}
+
+.mat-form-field {
+  //padding: 0px 0px 0px 5px;
+  margin:  0px 0px 0px 5px;
+  line-height: 1.25;
+}
+
+.menu-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 3px 0;
+    .menu-radio-button {
+      margin: 3px;
+    }
+}
+
+.mat-expansion-panel {
+  width: 100%;
+}
+
+.mat-expansion-panel-body {
+  width: 100%;
+}
+
+.mat-expansion-panel-content {
+  width: 100%;
+}
+
+
+

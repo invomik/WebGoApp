@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let item of menu.items">
+    <strong>{{item.menuitem}}</strong>
+    <div *ngIf="item.items.length">
+      <ul>
+        <li *ngFor="let subItem of item.items">{{subItem.menuitem}}</li>
+      </ul>
+    </div>
+  </li>
+</ul>

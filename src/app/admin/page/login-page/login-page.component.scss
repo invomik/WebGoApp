@@ -1,0 +1,33 @@
+.login-container {
+  width: 400px;
+  border: 1px solid #beb9b9;
+  border-radius: 5px;
+  margin: 100px auto auto auto;
+  padding: 1.5em;
+}
+
+.field-raw {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  //border: 2px solid blue;
+}
+
+.form-field {
+  margin: 10px;
+  flex: 1 1 100%;
+}
+
+.command-panel {
+  margin: 10px;
+  flex: 1 1 100%;
+}
+
+.max-length {
+  width: 100%;
+}
+
+.mat-form-field.mat-form-field {
+  font-size: 16px;
+}
+

@@ -1,0 +1,13 @@
+<div class="app_container">
+  <div class="app_row">
+
+    <app-inv-progress-spinner *ngIf="isMenuLoding" [overlay]="true"></app-inv-progress-spinner>
+
+    <div class="app_column app_column_menu">
+      <app-action-menu [menu]="menu"></app-action-menu>
+    </div>
+    <div class="app_column app_column_content">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

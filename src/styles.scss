@@ -1,0 +1,434 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
+@import "~ag-grid-community/dist/styles/ag-theme-material.css";
+@import "~ag-grid-community/dist/styles/ag-theme-bootstrap.css";
+@import "~ag-grid-community/dist/styles/ag-theme-fresh.css";
+@import '~@circlon/angular-tree-component/css/angular-tree-component.css';
+
+@import 'colors';
+
+:root {
+  --ag-header-column-resize-handle-color: #669b5a;
+}
+
+
+//$gradient_header: linear-gradient(180deg, #d7e3ed, #ffffff);
+//$gradient_header_card: linear-gradient(90deg, #d7e3ed, #ffffff);
+//$gradient_header_card: radial-gradient(#d7e3ed, #ffffff);
+//$color_accordion_header_bg: #dfe9d9;
+//$gradient_header: linear-gradient(180deg, #d7e3ed, #ffffff);
+//$gradient_header: linear-gradient(to bottom, #d7e3ed 10%, #ffffff 10%, #d7e3ed 80%);
+
+// текущее
+//$gradient_expansion-panel-header: linear-gradient(to bottom, #8c9d9d 20%, #dee3d9 60%, #bcd4ae 90%);
+//$gradient_header_card: linear-gradient(to bottom, #8c9d9d 500%, #dee3d9 60%, #bcd4ae 50%);
+//$color_circle_radio_button: #a0b9be;
+
+//$tbl-header-sticky: #d2e5da;
+//$tbl-column-sticky: rgba(210, 229, 218,0.5);
+//
+//$gradient_expansion-panel-header: #d2e5da;
+//$gradient_header_card: #d2e5da;
+//$color_circle_radio_button: #d2e5da;
+//
+//$color-toolbar: #d2e5da;
+//
+//$gradient_oper_title: linear-gradient(to bottom, #a6cfb7 20%, #cedbe5 40%, #a2bc92 100%);
+//
+//$gradien-mat-expansion-panel_bg: linear-gradient(to bottom, #bf1717 20%, #b3cce0 40%, #dfdfec 100%);
+//$mat-expansion-panel_color: rgba(0,0,0,.87);
+//$mat-form-field_bg: white;
+
+/*Обнуление*/
+*{
+  padding: 0;
+  margin: 0;
+//  border: 0;
+}
+*,*:before,*:after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.shadow-block {
+  box-shadow: 0 10px 10px rgba(0,0,0,0.15), 0px 5px 5px rgba(0,0,0,0.15);
+}
+
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+///*--------------------*/
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,body{
+  height: 100%;
+  font-size: 12px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+.mat-body, .mat-body-1, .mat-typography {
+  font: 400 12px/20px Roboto, "Helvetica Neue", sans-serif;
+}
+
+//.mat-body, .mat-body-1, .mat-typography {
+//  font: 400 12px/20px Roboto, "Helvetica Neue", sans-serif;
+//}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: $color_circle_radio_button;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $color_circle_radio_button;
+}
+
+mat-expansion-panel-header {
+  height: 3rem;
+  background: $gradient_expansion-panel-header;
+}
+
+
+.mat-expansion-panel-header.mat-expanded {
+  background: $gradient_expansion-panel-header;
+}
+
+.mat-expansion-panel-header.mat-expanded:hover {
+  background: $gradient_expansion-panel-header;
+}
+.mat-expansion-panel-header.mat-expanded {
+  height: 3rem;
+}
+
+.menu-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 3px 0;
+  .menu-radio-button {
+    margin: 3px;
+  }
+}
+
+.mat-expansion-panel-header-title {
+  font-size: 14px;
+}
+
+:host ::ng-deep .mat-radio-container {
+  height: 12px;
+  width: 12px;
+}
+
+:host ::ng-deep .mat-radio-label-content{
+  font-size: 10px;
+}
+
+:host ::ng-deep .mat-radio-outer-circle{
+  height: 12px;
+  width: 12px;
+}
+
+:host ::ng-deep .mat-radio-inner-circle{
+  height: 12px;
+  width: 12px;
+}
+
+i.material-icons {
+  font-size: 12px;
+  //height: 18px;
+}
+
+
+:host ::ng-deep .mat-radio-button .mat-radio-ripple{
+  height: 20px; /*double of your required circle radius*/
+  width: 20px;  /*double of your required circle radius*/
+  left: calc(50% - 12px); /*'10px'-same as your required circle radius*/
+  top: calc(50% - 12px); /*'10px'-same as your required circle radius*/
+}
+
+
+.form-container {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  padding: 0 1em 0 1em;
+  height: 95%;
+}
+
+.form-raw {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.content form {
+  margin-bottom: 20px;
+}
+
+.content form > * {
+  margin: 5px 0;
+}
+
+.content .mat-radio-button {
+  margin: 0 12px;
+}
+
+.content .mat-button-base {
+  margin: 8px 8px 8px 8px;
+}
+
+.mat-card-header .mat-card-title {
+  padding: 5px 0 5px 0;
+  height: 1.5em;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+//div.mat-card-header-text {
+//  font-size: 10px;
+//
+//}
+
+.mat-card-header {
+  //padding: 12px 5px;
+}
+
+mat-card-content.mat-card-content {
+  padding: 0px 0px;
+}
+
+.column-transfer .mat-card {
+  //transition: box-shadow 400ms cubic-bezier(0.8, 0.2, 0.2, 2);
+  //display: block;
+  //position: relative;
+  padding: 5px;
+  //border-radius: 4px;
+}
+
+.mat-card {
+  //background: #fff;
+  background: $gradient_header_card;
+  color: rgba(0,0,0,.87);
+}
+
+.mat-form-field {
+  background: $mat-form-field_bg;
+}
+
+.mat-expansion-panel-content .mat-expansion-panel-body {
+  //background: $gradient_header_card;
+  padding: 5px 5px;
+  margin: 0;
+}
+
+.mat-expansion-panel {
+  //background: $mat-expansion-panel_bg;
+  //color: $mat-expansion-panel_color;
+}
+
+td.mat-cell {
+  font-size: 12px;
+}
+
+.dlg_oper_title {
+  background: $gradient_oper_title;
+  padding: 5px 0 5px 10px;
+  span {
+    font-size: 14px;
+  }
+}
+
+.page_oper_title {
+  background: $gradient_oper_title;
+  padding: 5px 0 5px 10px;
+  span {
+    font-size: 14px;
+  }
+}
+
+.div_title {
+    background: $gradient_expansion-panel-header;
+    padding: 5px 0 5px 10px;
+    span {
+      font-size: 14px;
+    }
+}
+
+.row_row {
+  display: flex;
+}
+
+.last-column-raw {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+//  height: 100%;
+  flex-wrap: wrap;
+}
+
+.ag-column-flex-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.ag-col-btn-icon {
+  padding-top: 2px;
+}
+
+.ag-pinned-right-header,  .ag-header-row,  .ag-header-viewport  {
+  background: #d9e9f5;
+}
+
+
+.flex-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mat-icon-button {
+  width: 24px;
+  height: 24px;
+}
+
+
+tr {
+
+  &.mat-header-row {
+    height: 2.5em;
+  }
+  &.mat-row {
+    height: 2.5em;
+  }
+  &.mat-row:nth-child(odd) {
+    background: rgb(209, 228, 217, 0.4);
+    height: 2.5em;
+  }
+
+}
+
+.raws-comlumns {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.no-padding-dialog .mat-dialog-container {
+  padding: 0;
+}
+
+.dlg-toolbar {
+  background: $color-toolbar;
+}
+
+//.mat-form-field-appearance-outline .mat-form-field-infix {
+//  padding: 0.5em 0 1.0em 0;
+//}
+
+.mat-form-field {
+  //margin:  0px 0px 0px 5px;
+  //line-height: 1.0;
+}
+
+//.content .mat-form-field + .mat-form-field {
+//  margin-left: 8px;
+//}
+//
+
+//.content .mat-form-field {
+//  width: 220px;
+//}
+//
+
+//.column-field .mat-form-field {
+//  width: 100%;
+//  min-width: 50px;
+//}
+
+
+.mat-expansion-panel-header {
+  height: 2.5rem;
+//  background: blue;
+
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  height: 2.5rem;
+  //background: #bf1717;
+}
+
+.mat-form-field-wrapper {
+  margin-bottom: -15px;
+}
+
+// mat-form-field
+
+mat-form-field.mat-form-field {
+  font-size: 12px;
+}
+
+// вариант 1
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.3em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -0.8em; }
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-0.59375em) scale(.75);
+  width: 100%;
+}
+
+::ng-deep .mat-icon{
+  height:16px !important;
+  width:16px !important;
+  font-size:16px !important;
+}
+
+::ng-deep .mat-row .mat-cell {
+  //height:16px !important;
+  min-height: 30px;
+  font-size: 12px;
+  //width:16px !important;
+  //font-size:16px !important;
+}
+::ng-deep .mat-icon-button i, .mat-icon-button .mat-icon {
+  line-height: 16px;
+}
+
+.mat-icon-button {
+  line-height: 23px;
+}
+
+mat-row, mat-footer-row, mat-header-row {
+  min-height: 30px;
+  font-size: 12px;
+}
+
+

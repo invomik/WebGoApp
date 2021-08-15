@@ -1,0 +1,55 @@
+<div class="app_menu">
+      <div>
+        <mat-accordion *ngIf="menu.items" class="example-headers-align" multi>
+          <mat-expansion-panel hideToggle="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>Информация о точке</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="grid-accord-info">
+              <span>Банк:</span>
+              <span>{{goRefService.getWaMainInfo().name}}</span>
+              <span>Точка:</span>
+              <span>{{goRefService.getWaMainInfo().point_name}}</span>
+              <span>Пользов.:</span>
+              <span>{{goRefService.getWaMainInfo().person_name}}</span>
+              <span>Страна:</span>
+              <span>{{goRefService.getWaMainInfo().country_name}}</span>
+              <span>Город:</span>
+              <span>{{goRefService.getWaMainInfo().place_name}}</span>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel hideToggle="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>Лимиты</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let lim of goRefService.getBnkLimits()" class="flex-accord-limit">
+              <div>
+                <span>{{lim.idgo_cur}}</span>
+              </div>
+              <div>
+                <span>{{lim.sumlim}}</span>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <mat-accordion *ngFor="let imenu of menu.items" class="example-headers-align" multi>
+          <mat-expansion-panel *ngIf="!imenu.items.length" (click)="onChanged(imenu)" hideToggle="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>{{imenu.menuitem}}</mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+          <mat-expansion-panel *ngIf="imenu.items.length">
+            <mat-expansion-panel-header>
+              <mat-panel-title>{{imenu.menuitem}}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="app_content_menu">
+              <mat-radio-group  aria-labelledby="example-radio-group-label" class="menu-radio-group">
+                <mat-radio-button  *ngFor="let submenu of imenu.items" [value]="submenu.menuitem" (click)="onChanged(submenu)" class="menu-radio-button">
+                  {{submenu.menuitem}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>

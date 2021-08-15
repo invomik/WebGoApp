@@ -1,0 +1,210 @@
+<div class="container">
+  <div class="div_title shadow-block">
+    <div class="header-columns">
+      <span>Данные перевода</span>
+      <button
+        matTooltip="Поиск" matTooltipPosition="before"
+        mat-icon-button color="primary" aria-label="Поиск" (click)="showTfnList(searchData)">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="column-raws shadow-block">
+    <div class="column-50">
+      <div class="raw-raws">
+        <div class="field-100">
+            <mat-form-field [appearance]="inputAppearance">
+              <mat-label>КНП</mat-label>
+              <input matInput placeholder="0123456789" [(ngModel)]="searchData.tfnnum" name="tfnnum" (keyup)="showTfnList(searchData)">
+            </mat-form-field>
+        </div>
+        <div class="field-100">
+          <mat-form-field [appearance]="inputAppearance">
+            <mat-label>Сумма</mat-label>
+            <input matInput placeholder="0123456789" [(ngModel)]="searchData.sumtfn" name="sumtfn" (keyup)="showTfnList(searchData)">
+          </mat-form-field>
+        </div>
+        <div class="field-100">
+          <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+            <mat-label>Валюта</mat-label>
+            <mat-select [(ngModel)]="searchData.idgo_cur" name="idgo_cur"  (ngModelChange)="showTfnList(searchData)">
+              <mat-option *ngFor="let cur of goRefService.useCurrencies" [value]="cur.idgo_cur">{{cur.idgo_cur+' ('+cur.name+')'}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="field-100">
+          <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+            <mat-label>Статус</mat-label>
+            <mat-select [(ngModel)]="searchData.catstatus" name="catstatus"  (ngModelChange)="showTfnList(searchData)">
+              <mat-option *ngFor="let stat of goRefService.tfnStatuses" [value]="stat.idgo_cat">{{stat.name}}</mat-option>
+<!--              <mat-option value="Выплачен">Выплачен</mat-option>-->
+<!--              <mat-option value="Готов к выплате">Готов к выплате</mat-option>-->
+<!--              <mat-option value="Возврат">Возврат</mat-option>-->
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="field-100">
+          <mat-form-field  [appearance]="inputAppearance">
+            <mat-label>Дата</mat-label>
+            <input matInput [matDatepicker]="picker" (keyup)="showTfnList(searchData)">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="field-100">
+        </div>
+      </div>
+    </div>
+    <div class="column-50">
+      <mat-accordion multi>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Отправитель</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="raw-raws">
+            <div class="field-100">
+              <mat-form-field [appearance]="inputAppearance">
+                <mat-label>Фамилия</mat-label>
+                <input matInput placeholder="0123456789" [(ngModel)]="searchData.s_lname" name="s_lname" autocomplete="off" (keyup)="showTfnList(searchData)">
+              </mat-form-field>
+            </div>
+            <div class="field-100">
+              <mat-form-field [appearance]="inputAppearance">
+                <mat-label>Имя</mat-label>
+                <input matInput placeholder="0123456789" [(ngModel)]="searchData.s_fname" name="s_fname" (keyup)="showTfnList(searchData)">
+              </mat-form-field>
+            </div>
+            <div class="field-100">
+              <mat-form-field [appearance]="inputAppearance">
+                <mat-label>Отчество</mat-label>
+                <input matInput placeholder="0123456789" [(ngModel)]="searchData.s_mname" name="s_mname" (keyup)="showTfnList(searchData)">
+              </mat-form-field>
+            </div>
+            <div class="field-100">
+              <mat-form-field [appearance]="inputAppearance">
+                <mat-label>Телефон</mat-label>
+                <input matInput placeholder="0123456789" [(ngModel)]="searchData.s_phone" name="s_phone" (keyup)="showTfnList(searchData)">
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Получатель</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="raw-raws">
+            <div class="field-100">
+              <mat-form-field [appearance]="inputAppearance">
+                <mat-label>Фамилия</mat-label>
+                <input matInput placeholder="0123456789" [(ngModel)]="searchData.r_lname" name="r_lname" (keyup)="showTfnList(searchData)">
+              </mat-form-field>
+            </div>
+            <div class="field-100">
+              <mat-form-field [appearance]="inputAppearance">
+                <mat-label>Имя</mat-label>
+                <input matInput placeholder="0123456789" [(ngModel)]="searchData.r_fname" name="r_fname" (keyup)="showTfnList(searchData)">
+              </mat-form-field>
+            </div>
+            <div class="field-100">
+              <mat-form-field [appearance]="inputAppearance">
+                <mat-label>Отчество</mat-label>
+                <input matInput placeholder="0123456789" [(ngModel)]="searchData.r_mname" name="r_mname" (keyup)="showTfnList(searchData)">
+              </mat-form-field>
+            </div>
+            <div class="field-100">
+              <mat-form-field [appearance]="inputAppearance">
+                <mat-label>Телефон</mat-label>
+                <input matInput placeholder="0123456789" [(ngModel)]="searchData.r_phone" name="r_phone" (keyup)="showTfnList(searchData)">
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+
+<!--    <mat-spinner></mat-spinner>-->
+<!--    <mat-spinner style="margin:0 auto;"></mat-spinner>-->
+    <app-inv-progress-spinner *ngIf="isLoding" [overlay]="true"></app-inv-progress-spinner>
+
+    <mat-table [dataSource]="tfnDataSource">
+
+      <ng-container matColumnDef="dtcreate_rm">
+        <mat-header-cell *matHeaderCellDef> Дата </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.dtcreate_rm}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="idgo_cur">
+        <mat-header-cell *matHeaderCellDef> Валюта </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.idgo_cur}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="sumtfn">
+        <mat-header-cell *matHeaderCellDef> Сумма </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.sumtfn}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="s_ctya3">
+        <mat-header-cell *matHeaderCellDef> Страна/Город </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.s_ctya3}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="tfn_data">
+        <mat-header-cell *matHeaderCellDef> Данные перевода </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{getTfnData(element)}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef>
+          <div class="flex-right button-column">
+            <span>Действие</span>
+          </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div class="flex-right">
+            <div>
+              <button
+                matTooltip="Заблокировать" matTooltipPosition="below"
+                mat-icon-button color="black" aria-label="Заблокировать" (click)="lockTfn(element)">
+                <mat-icon>lock</mat-icon>
+              </button>
+            </div>
+            <div>
+            <button
+              matTooltip="Печать заявления на перевод" matTooltipPosition="below"
+              mat-icon-button color="black" aria-label="Печать заявления на перевод" (click)="printTfnDoc(element)">
+              <mat-icon>print</mat-icon>
+            </button>
+            </div>
+            <div>
+              <button
+                matTooltip="Печать заявления на редактирование перевода" matTooltipPosition="below"
+                mat-icon-button color="black" aria-label="Печать заявления на редактирование перевода" (click)="printTfnEditDoc(element)">
+                <mat-icon>print</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button
+                matTooltip="Экспорт перевода" matTooltipPosition="below"
+                mat-icon-button color="black" aria-label="Экспорт перевода" (click)="exportTfn(element)">
+                <mat-icon>send</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-cell>
+        <!--        <mat-footer-cell *matFooterCellDef> Symbol Footer </mat-footer-cell>-->
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="tfnTableColumns; sticky: true"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: tfnTableColumns;"></mat-row>
+
+    </mat-table>
+  </div>
+
+</div>
+

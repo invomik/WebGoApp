@@ -1,0 +1,371 @@
+<div class="form-container">
+
+  <div class="form-raw">
+
+    <div class="column-transfer">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Перевод</mat-card-title>
+        </mat-card-header>
+          <mat-card-content>
+            <div class="form-field-raw">
+              <div class="column-30">
+                <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                  <mat-label>Страна</mat-label>
+                  <input matInput placeholder="3-x буквенный код" required>
+                </mat-form-field>
+              </div>
+              <div class="column-70">
+                <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                  <input matInput readonly>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-field-raw">
+              <div class="field-100">
+                <mat-form-field [appearance]="inputAppearance">
+                  <mat-label>Населенный пункт</mat-label>
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-field-raw">
+              <div class="column-30">
+                <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                  <mat-label>Валюта</mat-label>
+                  <mat-select required>
+                    <mat-option value="USD">USD</mat-option>
+                    <mat-option value="EUR" disabled>EUR</mat-option>
+                    <mat-option value="USD">USD</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="column-70">
+                <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                  <mat-label>Сумма</mat-label>
+                  <input matInput required>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-field-raw">
+              <div class="column-30">
+                  <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                    <mat-label>Комиссия</mat-label>
+                    <input matInput readonly>
+                  </mat-form-field>
+              </div>
+              <div class="column-70">
+                <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                  <mat-label>Итого</mat-label>
+                  <input matInput readonly>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-field-raw">
+              <div class="field-100">
+                <mat-form-field [appearance]="inputAppearance">
+                  <mat-label>Часть комиссии Банка переводоотправителя</mat-label>
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-field-raw">
+              <div class="field-100">
+                <mat-form-field [appearance]="inputAppearance">
+                  <mat-label>Карта</mat-label>
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-field-raw">
+              <div class="field-100">
+                <mat-form-field>
+                  <mat-label>Сообщение получателю</mat-label>
+                  <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-field-raw">
+              <div class="field-100">
+                <mat-form-field>
+                  <mat-label>Комментарий</mat-label>
+                  <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+
+          </mat-card-content>
+      </mat-card>
+    </div>
+
+<!--  отправители-->
+    <div class="column-transfer-persons">
+      <div class-person-content>
+        <mat-accordion multi>
+
+          <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>Отправитель перевода</mat-panel-title>
+            </mat-expansion-panel-header>
+
+<!--            <div class="data-content-raw">-->
+            <div class="form-field-raw">
+              <div class="column-50-col">
+
+                <div class="raws-comlumns">
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Фамилия</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Имя</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Отчество</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                      <mat-label>Резидент</mat-label>
+                      <mat-select required>
+                        <mat-option value="Да">Да</mat-option>
+                        <mat-option value="Нет" disabled>Нет</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Миграционная карта</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="column-50-col">
+
+                <div class="raws-comlumns">
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                      <mat-label>Документ</mat-label>
+                      <mat-select required>
+                        <mat-option value="Паспорт РФ">Паспорт РФ</mat-option>
+                        <mat-option value="Иностранный паспорт">Иностранный паспорт</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Серия</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Номер</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Выдан</mat-label>
+                      <input matInput placeholder="Placeholder" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field  [appearance]="inputAppearance">
+                      <mat-label>Дата выдачи</mat-label>
+                      <input matInput [matDatepicker]="picker">
+                      <mat-datepicker-toggle matSuffix [for]="picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Дополнительные реквизиты и адрес отправителя</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="data-content-raw">
+
+            </div>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel  [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>Получатель перевода</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="data-content-raw">
+
+              <div class="column-50-col">
+
+                <div class="raws-comlumns">
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Фамилия</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Имя</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Отчество</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Гражданство</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                      <mat-label>Резидент</mat-label>
+                      <mat-select required>
+                        <mat-option value="Да">Да</mat-option>
+                        <mat-option value="Нет" disabled>Нет</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Миграционная карта</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>ID Card</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Email</mat-label>
+                      <input type="email" matInput placeholder="Placeholder">
+                      <mat-icon matSuffix>alternate_email</mat-icon>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Телефон</mat-label>
+<!--                      <span matPrefix>+1 &nbsp;</span>-->
+                      <input type="tel" matInput placeholder="555-555-1234">
+                      <mat-icon matSuffix>phone_enabled</mat-icon>
+                    </mat-form-field>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="column-50-col">
+                <div class="raws-comlumns">
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Фамилия(P)</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Имя(P)</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Отчество(P)</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance" floatLabel="auto">
+                      <mat-label>Документ</mat-label>
+                      <mat-select required>
+                        <mat-option value="Паспорт РФ">Паспорт РФ</mat-option>
+                        <mat-option value="Иностранный паспорт">Иностранный паспорт</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Серия</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Номер</mat-label>
+                      <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field [appearance]="inputAppearance">
+                      <mat-label>Выдан</mat-label>
+                      <input matInput placeholder="Placeholder" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                    <mat-form-field  [appearance]="inputAppearance">
+                      <mat-label>Дата выдачи</mat-label>
+                      <input matInput [matDatepicker]="picker_reciver">
+                      <mat-datepicker-toggle matSuffix [for]="picker_reciver">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #picker_reciver></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                  <div class="field-100">
+                      <mat-form-field [appearance]="inputAppearance">
+                        <mat-label>Код подразделения</mat-label>
+                        <input matInput placeholder="Placeholder" required>
+                      </mat-form-field>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Дополнительные реквизиты и адрес получателя</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="data-content-raw">
+
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+
+</div>

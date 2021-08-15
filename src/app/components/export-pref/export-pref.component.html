@@ -1,0 +1,75 @@
+<div class="container">
+
+  <div class="content">
+
+    <div class="points">
+      <div class="points-content">
+        <div class="points-tree">
+          <tree-root id="tree1" [focused]="true" [nodes]="points" [options]="optionsPointsTree"></tree-root>
+        </div>
+        <div class="actions">
+          <div class="point-actions">
+            <button
+              matTooltip="Автоматическая выгрузка" matTooltipPosition="below"
+              mat-icon-button color="primary" aria-label="Поиск">
+              <mat-icon>spellcheck</mat-icon>
+            </button>
+            <button
+              matTooltip="В ручном режиме" matTooltipPosition="below"
+              mat-icon-button color="primary" aria-label="Поиск">
+              <mat-icon>touch_app</mat-icon>
+            </button>
+            <button
+              matTooltip="По настройке банка" matTooltipPosition="below"
+              mat-icon-button color="primary" aria-label="Поиск">
+              <mat-icon>account_balance</mat-icon>
+            </button>
+            <button
+              matTooltip="Выгрузка не доступна" matTooltipPosition="below"
+              mat-icon-button color="primary" aria-label="Поиск">
+              <mat-icon>search</mat-icon>
+            </button>
+          </div>
+          <div class="form-actions">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accessible-export-fields">
+      <div class="accessible-fields">
+        <div class="attr-list-title">Доступные поля</div>
+        <div
+          cdkDropList
+          #linkAttrList="cdkDropList"
+          [cdkDropListData]="linkAttrs"
+          [cdkDropListConnectedTo]="[unLinkAttrList]"
+          class="attrs-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="attr-item-list" *ngFor="let item of linkAttrs" cdkDrag>{{item.name}}</div>
+        </div>
+      </div>
+      <div class="attr-action">
+
+      </div>
+      <div class="export-fields">
+          <div class="attr-list-title">Экспортирумые поля</div>
+          <div
+            cdkDropList
+            #unLinkAttrList="cdkDropList"
+            [cdkDropListData]="unLinkAttrs"
+            [cdkDropListConnectedTo]="[linkAttrList]"
+            class="attrs-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="attr-item-list" *ngFor="let item of unLinkAttrs" cdkDrag>{{item.name}}</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    </div>
+
+
